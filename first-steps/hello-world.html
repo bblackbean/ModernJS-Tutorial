@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <p>스크립트 전</p>
+    <script>
+        alert('Hello, world!');
+    </script>
+    <p>스크립트 후</p>
+
+    <!-- URL 전체를 속성으로 사용 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js"></script>
+    <!-- 자바스크립트 코드 양이 많을 경우, 파일로 소분하여 저장 -->
+    <script src="/path/to/script.js"></script>
+    
+    <script src="file.js">
+        alert(1); //src 속성이 사용되면 내부 코드는 무시됨
+    </script>
+
+    <!-- 스크립트 두 개로 분리하면 정상적으로 실행 -->
+    <script src="file.js"></script>
+    <script>
+        alert(1);
+    </script>
+</body>
+</html>
