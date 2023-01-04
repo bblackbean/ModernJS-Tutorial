@@ -34,3 +34,127 @@ alert("숫자가 아님" / 2 + 5); // NaN
 BigInt형은 표준으로 채택된 지 얼마 안 된 자료형으로, 길이에 상관없이 정수를 나타낼 수 있다.
 BigInt형 값은 정수 리터럴 끝에 n을 붙이면 만들 수 있다.
 */
+// 끝에 'n'이 붙으면 BigInt형 자료이다.
+const bigInt = 123456789123456789012345678901234567890n;
+
+
+/* 문자형
+자바스크립트에서는 문자열(string)을 따옴표로 묶는다.
+*/
+let str = "Hello";
+let str2 = 'Single quotes are ok too';
+let phrase = `can embed another ${str}`;
+
+/* 따옴표에는 세 종류가 있다.
+1. 큰따옴표 : "Hello"
+2. 작은따옴표 : 'Hello'
+3. 역 따옴표(백틱, backtick) : `Hello`
+큰따옴표와 작은따옴표는 '기본적인' 따옴표로, 자바스크립트에서는 이 둘에 차이를 두지 않는다.
+역 따옴표로 변수나 표현식을 감싼 후 ${...} 안에 넣어주면, 아래와 같이 원하는 변수나 표현식을 문자열 중간에 손쉽게 넣을 수 있다.
+*/
+let name = "John";
+// 변수를 문자열 중간에 삽입
+alert(`Hello, ${name}!`); //Hello, John!
+// 표현식을 문자열 중간에 삽입
+alert(`the result is ${1+2}`); //the result is 3
+// ${…} 안에는 name 같은 변수나 1 + 2 같은 수학 관련 표현식을 넣을 수 있다. 이렇게 문자열 중간에 들어간 변수나 표현식은 평가가 끝난 후 문자열의 일부가 된다. 큰따옴표나 작은따옴표를 사용하면 중간에 표현식을 넣을 수 없다는 점에 주의하자. 이 방법은 역 따옴표를 써야만 가능하다.
+alert( "the result is ${1 + 2}" ); // the result is ${1 + 2} (큰따옴표는 확장 기능을 지원하지 않는다.)
+
+/* 글자형은 없다.
+C 언어와 Java의 char 타입이 자바스크립트에는 없다. 오로지 문자열만 있다.
+ */
+
+
+/* 불린형
+불린형(논리 타입)은 true와 false 두 가지 값밖에 없는 자료형이다. 불린형은 긍정(yes)이나 부정(no)을 나타내는 값을 저장할 때 사용한다. true는 긍정, false는 부정을 의미한다.
+*/
+let nameFieldChecked = true; // 네, name field가 확인되었습니다(checked).
+let ageFieldChecked = false; // 아니요, age field를 확인하지 않았습니다(not checked)
+
+// 불린값은 비교 결과를 저장할 때도 사용된다.
+let isGreater = 4 > 1;
+alert( isGreater ); // true (비교 결과: "yes")
+
+
+/* 'null'값 
+null 값은 지금까지 소개한 자료형 중 어느 자료형에도 속하지 않는 값이다.
+null 값은 오로지 null 값만 포함하는 별도의 자료형을 만든다.
+*/
+let age = null;
+/* 자바스크립트의 null은 자바스크립트 이외 언어의 null과 성격이 다르다.
+다른 언어에선 null을 '존재하지 않는 객체에 대한 참조’나 '널 포인터(null pointer)'를 나타낼 때 사용한다.
+하지만 자바스크립트에선 null을 ‘존재하지 않는(nothing)’ 값, ‘비어 있는(empty)’ 값, ‘알 수 없는(unknown)’ 값을 나타내는 데 사용한다.
+let age = null;은 나이(age)를 알 수 없거나 그 값이 비어있음을 보여준다.
+*/
+
+
+/* 'undefined'값
+undefined 값도 null 값처럼 자신만의 자료형을 형성한다. undefined는 '값이 할당되지 않은 상태’를 나타낼 때 사용한다.
+변수는 선언했지만, 값을 할당하지 않았다면 해당 변수에 undefined가 자동으로 할당된다.
+*/
+let age2;
+alert(age2); // 'undifined'가 출력됨
+// 개발자가 변수에 undefined를 명시적으로 할당하는 것도 가능하긴 하다.
+let age3 = 100;
+// 값을 undefined로 바꾼다.
+age3 = undefined;
+alert(age); // "undefined"
+// 하지만 이렇게 undefined를 직접 할당하는 걸 권장하진 않는다. 변수가 ‘비어있거나’ ‘알 수 없는’ 상태라는 걸 나타내려면 null을 사용하라. undefined는 값이 할당되지 않은 변수의 초기값을 위해 예약어로 남겨두자.
+
+
+/* 객체와 심볼
+객체(object)형은 특수한 자료형이다.
+객체형을 제외한 다른 자료형은 문자열이든 숫자든 한 가지만 표현할 수 있기 때문에 원시(primitive) 자료형이라 부른다.
+반면 객체는 데이터 컬렉션이나 복잡한 개체(entity)를 표현할 수 있다.
+이런 특징 때문에 자바스크립트에서 객체는 좀 더 특별한 취급을 받는다.
+심볼(symbol)형은 객체의 고유한 식별자(unique identifier)를 만들 때 사용된다. 심볼형에 대해선 객체를 학습하고 난 이후에 자세히 학습한다.
+*/
+
+
+/* typeof 연산자
+typeof 연산자는 인수의 자료형을 반환한다. 자료형에 따라 처리 방식을 다르게 하고 싶거나 변수의 자료형을 빠르게 알아내고자 할 때 유용하다.
+typeof 연산자는 두 가지 형태의 문법을 지원한다.
+1. 연산자: typeof x
+2. 함수: typeof(x)
+괄호가 있든 없든 결과가 동일하다. typeof x를 호출하면 인수의 자료형을 나타내는 문자열을 반환한다.
+*/
+typeof undefined // "undefined"
+
+typeof 0 // "number"
+
+typeof 10n // "bigint"
+
+typeof true // "boolean"
+
+typeof "foo" // "string"
+
+typeof Symbol("id") // "symbol"
+
+typeof Math // "object"  (1)
+
+typeof null // "object"  (2)
+
+typeof alert // "function"  (3)
+/*
+1. Math는 수학 연산을 제공하는 내장 객체이므로 "object"가 출력된다.
+2. typeof null의 결과는 "object"이다. null은 별도의 고유한 자료형을 가지는 특수 값으로 객체가 아니지만, 하위 호환성을 유지하기 위해 이런 오류를 수정하지 않고 남겨둔 상황이다. 언어 자체의 오류이므로 null이 객체가 아님에 유의해야 한다.
+3. typeof는 피연산자가 함수면 "function"을 반환한다. 그러므로 typeof alert는 "function"을 출력해준다. 그런데 '함수’형은 따로 없습니다. 함수는 객체형에 속한다. 이런 동작 방식이 형식적으론 잘못되긴 했지만, 아주 오래전에 만들어진 규칙이었기 때문에 하위 호환성 유지를 위해 남겨진 상태이다. 한편, 실무에선 이런 특징이 매우 유용하게 사용되기도 한다.
+*/
+
+
+/* 요약
+자바스크립트에는 여덟 가지 기본 자료형이 있다.
+* 숫자형 – 정수, 부동 소수점 숫자 등의 숫자를 나타낼 때 사용한다. 정수의 한계는 ±2^53 이다.
+* bigint – 길이 제약 없이 정수를 나타낼 수 있다.
+* 문자형 – 빈 문자열이나 글자들로 이뤄진 문자열을 나타낼 때 사용한다. 단일 문자를 나타내는 별도의 자료형은 없다.
+* 불린형 – true, false를 나타낼 때 사용한다.
+* null – null 값만을 위한 독립 자료형이다. null은 알 수 없는 값을 나타낸다.
+* undefined – undefined 값만을 위한 독립 자료형이다. undefined는 할당되지 않은 값을 나타낸다.
+* 객체형 – 복잡한 데이터 구조를 표현할 때 사용한다.
+* 심볼형 – 객체의 고유 식별자를 만들 때 사용한다.
+
+typeof 연산자는 피연산자의 자료형을 알려준다.
+* typeof x 또는 typeof(x) 형태로 사용한다.
+* 피연산자의 자료형을 문자열 형태로 반환한다.
+* null의 typeof 연산은 "object"인데, 이는 언어상 오류이다. null은 객체가 아니다.
+*/
